@@ -1,2 +1,2 @@
 # euler
-My personal euler project answers
+My personal euler project items
