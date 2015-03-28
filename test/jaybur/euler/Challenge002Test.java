@@ -15,5 +15,4 @@ public class Challenge002Test {
 				"Result does not match up against hand-calculated result from example!",
 				expectedResult, result);
 	}
-
 }
