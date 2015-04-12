@@ -2,6 +2,8 @@ package jaybur.euler;
 
 import java.util.concurrent.TimeUnit;
 
+import jaybur.util.MathUtils;
+
 /**
  * By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see
  * that the 6th prime is 13.
@@ -17,7 +19,7 @@ public class Challenge007 {
 		long currentPrime = -1;
 
 		for (long potentialPrime = 1; primeCount < index; potentialPrime++) {
-			if (!Challenge003.isPrimeNumber(potentialPrime)) {
+			if (!MathUtils.isPrimeNumber(potentialPrime)) {
 				continue;
 			}
 
@@ -49,9 +51,9 @@ public class Challenge007 {
 				"%02d:%02d:%02d",
 				TimeUnit.MILLISECONDS.toHours(millis),
 				TimeUnit.MILLISECONDS.toMinutes(millis)
-						% TimeUnit.HOURS.toMinutes(1),
+				% TimeUnit.HOURS.toMinutes(1),
 				TimeUnit.MILLISECONDS.toSeconds(millis)
-						% TimeUnit.MINUTES.toSeconds(1));
+				% TimeUnit.MINUTES.toSeconds(1));
 	}
 
 }

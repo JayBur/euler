@@ -1,8 +1,6 @@
 package jaybur.euler;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Assert;
 import org.junit.Rule;
@@ -109,68 +107,5 @@ public class Challenge003Test {
 				result.length);
 		Assert.assertArrayEquals("Incorrect primes were returned",
 				expectedPrimes, result);
-	}
-
-	@Test
-	public void test_isInteger() {
-		double intValue = 1d;
-
-		assertTrue(Challenge003.isInteger(intValue));
-	}
-
-	@Test
-	public void test_isInteger_false() {
-		double intValue = 1.1d;
-
-		assertFalse(Challenge003.isInteger(intValue));
-	}
-
-	@Test
-	public void test_isPrimeNumber() {
-		assertTrue(Challenge003.isPrimeNumber(2));
-		assertTrue(Challenge003.isPrimeNumber(3));
-		assertTrue(Challenge003.isPrimeNumber(5));
-		assertTrue(Challenge003.isPrimeNumber(7));
-		assertTrue(Challenge003.isPrimeNumber(11));
-		assertTrue(Challenge003.isPrimeNumber(13));
-		assertTrue(Challenge003.isPrimeNumber(17));
-		assertTrue(Challenge003.isPrimeNumber(19));
-		assertTrue(Challenge003.isPrimeNumber(23));
-
-		assertFalse(Challenge003.isPrimeNumber(4));
-		assertFalse(Challenge003.isPrimeNumber(6));
-		assertFalse(Challenge003.isPrimeNumber(8));
-		assertFalse(Challenge003.isPrimeNumber(9));
-		assertFalse(Challenge003.isPrimeNumber(10));
-		assertFalse(Challenge003.isPrimeNumber(12));
-		assertFalse(Challenge003.isPrimeNumber(14));
-
-		assertFalse(Challenge003.isPrimeNumber(33));
-	}
-
-	@Test
-	public void test_isPrimeNumber_directSquareRootCase() {
-		assertFalse(Challenge003.isPrimeNumber(144));
-	}
-
-	@Test
-	public void test_isPrimeNumber_negative() {
-		exception.expect(IllegalArgumentException.class);
-		exception.expectMessage("Expected non-negative non-zero integer!");
-
-		assertTrue(Challenge003.isPrimeNumber(-13));
-	}
-
-	@Test
-	public void test_isPrimeNumber_one() {
-		assertFalse(Challenge003.isPrimeNumber(1));
-	}
-
-	@Test
-	public void test_isPrimeNumber_zero() {
-		exception.expect(IllegalArgumentException.class);
-		exception.expectMessage("Expected non-negative non-zero integer!");
-
-		assertTrue(Challenge003.isPrimeNumber(0));
 	}
 }

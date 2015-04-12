@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import jaybur.util.MathUtils;
+
 /**
  * The prime factors of 13195 are 5, 7, 13 and 29.
  *
@@ -22,12 +24,12 @@ public class Challenge003 {
 			long primeNumber = primeNumbers[i];
 
 			divisionResult = remainingInputValue / primeNumber;
-			if (!isInteger(divisionResult)) {
+			if (!MathUtils.isInteger(divisionResult)) {
 				continue;
 			}
 
 			int power = 2;
-			for (; isInteger(divisionResult); power++) {
+			for (; MathUtils.isInteger(divisionResult); power++) {
 				divisionResult = remainingInputValue
 						/ Math.pow(primeNumber, power);
 			}
@@ -44,8 +46,9 @@ public class Challenge003 {
 		boolean squareRootUsed = false;
 
 		for (long candidate = value; candidate >= 0; candidate--) {
-			if (!isPrimeNumber(candidate)) {
-				if (!squareRootUsed && isInteger(Math.sqrt(candidate))) {
+			if (!MathUtils.isPrimeNumber(candidate)) {
+				if (!squareRootUsed
+						&& MathUtils.isInteger(Math.sqrt(candidate))) {
 					candidate = (long) Math.sqrt(candidate);
 					squareRootUsed = true;
 				}
@@ -53,7 +56,7 @@ public class Challenge003 {
 				continue;
 			}
 
-			if (isInteger((double) value / (double) candidate)) {
+			if (MathUtils.isInteger((double) value / (double) candidate)) {
 				return candidate;
 			}
 		}
@@ -93,12 +96,12 @@ public class Challenge003 {
 			long primeNumber = primeNumbers[i];
 
 			divisionResult = remainingInputValue / primeNumber;
-			if (!isInteger(divisionResult)) {
+			if (!MathUtils.isInteger(divisionResult)) {
 				continue;
 			}
 
 			int power = 2;
-			for (; isInteger(divisionResult); power++) {
+			for (; MathUtils.isInteger(divisionResult); power++) {
 				divisionResult = remainingInputValue
 						/ Math.pow(primeNumber, power);
 			}
@@ -120,65 +123,12 @@ public class Challenge003 {
 		List<Long> primeNumbers = new ArrayList<>();
 
 		for (long val = 2; val < maxValue; val++) {
-			if (isPrimeNumber(val)) {
+			if (MathUtils.isPrimeNumber(val)) {
 				primeNumbers.add(val);
 			}
 		}
 
 		return toLongArray(primeNumbers);
-	}
-
-	public static boolean isInteger(double value) {
-		return value == Math.floor(value) && !Double.isInfinite(value);
-	}
-
-	/**
-	 * calculates whether a number is a prime number
-	 *
-	 * XXX: feed prime numbers to loop through for performance improvement
-	 *
-	 * XXX: based on Trial Division: more efficient algorithms exist
-	 *
-	 * @param potentialPrime
-	 * @return
-	 */
-	public static boolean isPrimeNumber(long potentialPrime) {
-		if (potentialPrime < 1) {
-			throw new IllegalArgumentException(
-					"Expected non-negative non-zero integer!");
-		}
-
-		// NOTE: wikipedia: The uniqueness in this theorem requires excluding 1
-		// as a prime because one can include arbitrarily many instances of 1 in
-		// any factorization, e.g., 3, 1 × 3, 1 × 1 × 3, etc. are all valid
-		// factorizations of 3.
-		if (potentialPrime == 1) {
-			return false;
-		}
-
-		// known prime
-		if (potentialPrime == 2) {
-			return true;
-		}
-
-		// even numbers beyond 2 are not primes
-		if (potentialPrime % 2 == 0) {
-			return false;
-		}
-
-		double squareRoot = Math.sqrt(potentialPrime);
-
-		if (isInteger(squareRoot)) {
-			return false;
-		}
-
-		for (int i = 2; i < squareRoot; i++) {
-			if (isInteger(potentialPrime / ((double) i))) {
-				return false;
-			}
-		}
-
-		return true;
 	}
 
 	public static void main(String[] args) {
