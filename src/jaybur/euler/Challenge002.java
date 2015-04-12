@@ -1,5 +1,7 @@
 package jaybur.euler;
 
+import jaybur.util.StringUtils;
+
 /**
  * The following problem is taken from Project Euler:
  *
@@ -52,6 +54,6 @@ public class Challenge002 {
 		long totalTime = System.currentTimeMillis() - ms;
 
 		System.out.println("Result = " + result);
-		System.out.println("Total time: " + totalTime + "ms");
+		System.out.println("Total time: " + StringUtils.printTime(totalTime));
 	}
 }

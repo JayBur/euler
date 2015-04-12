@@ -1,8 +1,7 @@
 package jaybur.euler;
 
-import java.util.concurrent.TimeUnit;
-
 import jaybur.util.MathUtils;
+import jaybur.util.StringUtils;
 
 /**
  * The following problem is taken from Project Euler:
@@ -43,21 +42,6 @@ public class Challenge007 {
 		long totalTime = System.currentTimeMillis() - ms;
 
 		System.out.println("Result = " + result);
-		System.out.println("Total time: " + printTime(totalTime));
+		System.out.println("Total time: " + StringUtils.printTime(totalTime));
 	}
-
-	private static String printTime(long millis) {
-		if (millis < 1000) {
-			return millis + "ms";
-		}
-
-		return String.format(
-				"%02d:%02d:%02d",
-				TimeUnit.MILLISECONDS.toHours(millis),
-				TimeUnit.MILLISECONDS.toMinutes(millis)
-				% TimeUnit.HOURS.toMinutes(1),
-				TimeUnit.MILLISECONDS.toSeconds(millis)
-				% TimeUnit.MINUTES.toSeconds(1));
-	}
-
 }
