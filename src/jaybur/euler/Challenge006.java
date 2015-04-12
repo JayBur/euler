@@ -3,6 +3,8 @@ package jaybur.euler;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * The following problem is taken from Project Euler:
+ *
  * The sum of the squares of the first ten natural numbers is,
  *
  * 1^2 + 2^2 + ... + 10^2 = 385 The square of the sum of the first ten natural
@@ -16,6 +18,8 @@ import java.util.concurrent.TimeUnit;
  * natural numbers and the square of the sum.
  *
  * @author JayBur
+ * @link http://projecteuler.net/problem=006
+ * @source https://github.com/JayBur/euler
  */
 public class Challenge006 {
 

@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * The following problem is taken from Project Euler:
+ *
  * 2520 is the smallest number that can be divided by each of the numbers from 1
  * to 10 without any remainder.
  *
@@ -12,6 +14,8 @@ import java.util.concurrent.TimeUnit;
  * numbers from 1 to 20?
  *
  * @author JayBur
+ * @link http://projecteuler.net/problem=005
+ * @source https://github.com/JayBur/euler
  */
 public class Challenge005 {
 
